@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/notes", notesRoutes);
 
 app.get("/", (_, response) =>
-  response.json({ info: "Node.js, Express, and Postgres API" })
+  response.json({ info: "Notes API :)" })
 );
 
 const PORT = process.env.PORT || 8080;
