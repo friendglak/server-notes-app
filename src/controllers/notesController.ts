@@ -10,7 +10,7 @@ export const supabase = createClient(SupabaseUrl, SupabaseKey);
 
 export const getAllNotes = async (_: Request, response: Response) => {
   try {
-    const { data, error } = await supabase.from("notes").select('*');
+    const { data, error } = await supabase.from("notes").select("*");
     if (error) {
       throw error;
     }
@@ -57,8 +57,9 @@ export const updateNote = async (request: Request, response: Response) => {
       .from("notes")
       .update({
         title: request.body.title,
-        content: request.body.content,
-        tags: request.body.tags,
+        description: request.body.description,
+        create_at: request.body.create_at,
+        state: request.body.state,
       })
       .eq("id", request.params.id);
 
